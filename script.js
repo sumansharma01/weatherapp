@@ -33,6 +33,8 @@ const countries=async()=>{
             var image=document.createElement("img");
             image.className="card-img-top";
             image.setAttribute("src",`${countriesData[i].flag}`);
+            image.style.height="150px";
+            image.style.width="auto";
 
 
             var cardBody=document.createElement("div");
