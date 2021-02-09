@@ -10,11 +10,10 @@ const countries=async()=>{
         document.body.appendChild(container);
         
         
-        const findWeather=()=>{
-            var button=document.querySelector("btn btn-primary");
-            var selectedCountry=document.querySelector("card-title");
-            console.log(selectedCountry);
-        
+        const findWeather=async(selected)=>{
+            // alert(selected);
+            let weather_=await (await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${selected.latlng[0]}&lon=${selected.latlng[1]}&appid=3783099bb68c13b2ede5c8c284988002&units=metric`)).json();
+            alert(`${selected.name}: ${weather_.main.temp} °C \n${weather_.weather[0].main}`);
         }
         
 
@@ -45,9 +44,12 @@ const countries=async()=>{
 
             var p=document.createElement("p");
             p.className="card-text";
-            var capital=document.createTextNode(`Capital: ${countriesData[i].capital}`);
-            var region=document.createTextNode(`Region: ${countriesData[i].region}`);
-            var countryCode=document.createTextNode(`Country Code: ${countriesData[i].alpha3Code}`);
+            var capital=document.createElement("p");
+            capital.appendChild(document.createTextNode(`Capital: ${countriesData[i].capital}`));
+            var region=document.createElement("p");
+            region.appendChild(document.createTextNode(`Region: ${countriesData[i].region}`));
+            var countryCode=document.createElement("p");
+            countryCode.appendChild(document.createTextNode(`Country Code: ${countriesData[i].alpha3Code}`));
             p.appendChild(capital);
             p.appendChild(region);
             p.appendChild(countryCode);
@@ -57,7 +59,9 @@ const countries=async()=>{
             a.className="btn btn-primary";
             a.innerText="Click for weather";
             
-            a.setAttribute("onclick","findWeather()");
+            a.onclick=()=>{
+                findWeather(countriesData[i]);
+            }
 
             cardBody.appendChild(h);
             cardBody.appendChild(p);
@@ -82,6 +86,8 @@ const countries=async()=>{
 
 countries();
 
+
+//api key:3783099bb68c13b2ede5c8c284988002
 
 
 

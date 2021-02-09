@@ -2,7 +2,7 @@
     text-align: center;
 }
 .card{
-    height: 400px;
+    height: 420px;
     transition: transform .2s;
     
 }
@@ -14,6 +14,7 @@
 .card-body .btn{
     position:relative;
     left: 50px;
+    bottom:-5px;
     background-color: #888888;
     border: none;
     transition: transform .2s;
