@@ -1,0 +1,25 @@
+.card-body .card-title{
+    text-align: center;
+}
+.card{
+    height: 400px;
+    transition: transform .2s;
+    
+}
+.card:hover{
+    box-shadow: 5px 10px 8px 10px #888888;
+    transform: scale(1.1);
+}
+
+.card-body .btn{
+    position:relative;
+    left: 50px;
+    background-color: #888888;
+    border: none;
+    transition: transform .2s;
+}
+
+.card-body .btn:hover{
+    box-shadow: 4px 6px 3px #d3d6db;
+    transform: scale(1.1);
+}
